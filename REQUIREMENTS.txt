@@ -1,0 +1,7 @@
+mkdocs-rss-plugin
+mkdocs-rtd-dropdown #remove
+mkdocs-material
+mkdocs-blogging-plugin
+mkdocs-diagrams
+feedparser
+xmlmerge
