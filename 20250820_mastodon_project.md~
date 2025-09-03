@@ -1,0 +1,51 @@
+---
+date: 2025-08-20
+categories:
+  - Generic
+  - Admin
+authors:
+  - etosch
+---
+
+# New student, new project
+
+I want to extend a belated welcome to [Zixuan (Jason) Yu](), a Northeastern University undergraduate student who is working with me on a research coop through December 2025. Jason's project focuses on identifying elements of the Mastodon code base where we might either want to intervene (in order to answer a research question) or where there might be associated privacy considerations.
+
+<!--more-->
+
+Jason's project combines goals from the [Privacy Narratives]() project and the [Helical]() project. Before we get into specifics, let's dicuss the connection between privacy and experimentation.
+
+As Donald Campbell wrote in [Methods for the Experimenting Society](),
+
+> Programs are ... continued or discontinued on inadequate ... grounds[,] ... due in part to the inertia of social organizations, in part to  political predicaments which oppose evaluation, and in part to the fact that the methodology of evaluation is still inadequate.
+
+Mastodon as both a software platform and as a commuinty presents has less of this inertia.
+
+Much of the work we have been focusing on with Helical has been in service of improving methodology. Indeed, insofar as computing systems can be made to have less friction with respect to experimentation....
+
+Each Mastodon instance is a little society.
+
+cambell's vision for an experimenting society sounds a bit like moving fast and breaking things.
+- this is NOT what we want
+- there are actually three pillars: experimentation, democratic involvement, and trust
+- trust in the context of these systems is best understood via its cousin, privacy
+
+problem: for many people, experimenting means manipulation and deception, a
+
+return to reality: a manifesto
+
+much of what I'm about to write is influced or better explained by Nate Matias, Ethan Zuckerman, and Cory Doctorow.
+
+# experimentation is not the same as optimization
+
+Those who know me have heard me repeat this many times over, but it's important to do so again: the word "experimentation" is used too loosely and in doing so it captures two incompatible ideas. experimentation ought to be about shedding your biases  and leveraging the appratus of experimental design to answer some question about the world as it is. unfortunately, the word experimentation is often also used to describe the activity of "Trying things out" in a more ad hoc way.
+
+trhe right to research: https://independenttechresearch.org/wp-content/uploads/2025/08/The-State-of-Independent-Technology-Research-Power-in-Numbers.pdf
+
+campbell discussses the experimenter as authoritarian and how one criticism of his past work on	reforms as experiments would suggest that experimentation is antithetical to an open society, whose values he had earlier expounded upon
+
+As we discuss in our [2024 PoPETS paper](), Mastodon and federated social networking platforms present a unique perspective (and perhaps even a pivot) in the relationship between social networking websites and users, versus traditional centralized social media websites, due to the fact that Fediverse administrators often wear multiple hats when operating these websites. The legal landscape for independently operated fora is changing. While I doubt regulations will deter open-source tech enthusiasts, the new wave of administrators who have begun running e.g., Mastodon, may have apprehensions about how to move forward 
+
+
+
+focused on identifying points in the Mastodon code base where there are opportunties  
