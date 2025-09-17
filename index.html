@@ -466,12 +466,62 @@
   
   
     <li class="md-nav__item">
+      <a href="category/dsls.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DSLs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
       <a href="category/helical.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     Helical
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="category/jupyter.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Jupyter
     
   </span>
   
@@ -528,7 +578,155 @@
       <nav class="md-post__authors md-typeset">
         
           <span class="md-author">
-            <img src="https://openclipart.org/image/800px/303809" alt="Zixuan Jason Yu">
+            <img src="https://openclipart.org/image/800px/303809" alt="Emma Tosch">
+          </span>
+        
+      </nav>
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2025-09-17 00:00:00+00:00">September 17, 2025</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="category/dsls.html" class="md-meta__link">DSLs</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              4 min read
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="dsl-usability-research"><a class="toclink" href="2025/09/17/dsl-usability-research.html">DSL Usability Research</a></h2>
+<p>In <a href="2025/09/16/jupyter-dsls.html">my previous post</a>, I asserted:</p>
+<blockquote>
+<p>...learning a new formal language can itself contribute to the difficulty of encoding an experiment.</p>
+</blockquote>
+<p>This statement was based on assumptions, intuitions, and folk wisdom. I started digging into the DSL usability research to see if I could find explicit support for this statement. This blog post is about what I found. </p>
+<!--more-->
+
+<p>Suppose I have a DSL for a task that was previously manual. I want to conduct a user study. I decide to use some previously validated instrument to measure differences in perceived difficulty of encoding/performing a task (<span class="arithmatex">\(D\)</span>), and vary the method used to code the task (<span class="arithmatex">\(M=\text{DSL}\)</span> vs. <span class="arithmatex">\(M=\text{manual}\)</span>). Suppose there is no variability in task difficulty for now: the specific task is fixed for the duration of the study, i.e., is controlled.</p>
+<p>Ideally, I'd like to just measure the effect of <span class="arithmatex">\(M\)</span> on <span class="arithmatex">\(D\)</span>; we are going to abuse <a href="https://en.wikipedia.org/wiki/Plate_notation">plate notation</a><sup id="fnref:1"><a class="footnote-ref" href="2025/09/17/dsl-usability-research.html#fn:1">1</a></sup> a bit and say that the following graph denotes "method has an effect on percieved difficulty of performing a specific task for the population of experts in the domain of that task:"</p>
+<pre class="mermaid"><code>flowchart LR
+  M("Method ($$M$$)")
+  subgraph ppl [domain experts]
+      D("Percieved Difficulty of Task ($$D$$)")
+  end
+  M --&gt; D
+</code></pre>
+<p>The first obvious problem is that <span class="arithmatex">\(D\)</span> is a mixture of some "inherent" difference due to <span class="arithmatex">\(M\)</span> and the novelty of the method/context/context/environment/situation (<span class="arithmatex">\(N\)</span>). We have not included <span class="arithmatex">\(N\)</span> in our model; let's do so now:
+<pre class="mermaid"><code>flowchart LR
+  M("Method ($$M$$)")
+    subgraph ppl [domain experts]
+      direction TB
+        N("Novelty ($$N$$)")
+    D("Percieved Difficulty of Task ($$D$$)")
+    end
+  M--&gt;D
+  N--&gt;D</code></pre>
+Conducting a na&iuml;ve study results in <span class="arithmatex">\((D \vert M=\text{manual}, N = 0)\)</span> vs. <span class="arithmatex">\((D \vert M=\text{DSL}, N \gg 0)\)</span>. This is why we have the study participants perform a training task first: it's an attempt to lower <span class="arithmatex">\(N\)</span> as much as possible, i.e., to control for novelty.</p>
+<p>Training tasks are obviously not unique to DSL research; however, there are other tactics for reducing novelty that <em>are</em> unique to programming systems. For example, it seems obvious that IDE features like syntax highlighting and autocomplete that are part of a "normal" programming environment would reduce the value of <span class="arithmatex">\(N\)</span>; so would integrating the DSL into the target users' existing toolchain/workflow.</p>
+<p>If we allow the task to vary, then our model needs to include another potential cause for <span class="arithmatex">\(D\)</span>:</p>
+<pre class="mermaid"><code>flowchart LR
+  M("Method ($$M$$)")
+  C("Task Complexity ($$C$$)")
+  subgraph ppl [&amp;nbsp;&amp;nbsp;domain experts]
+    direction TB
+    N("Novelty ($$N$$)")
+    D("Precieved Difficulty of Task ($$D$$)")
+  end
+  M --&gt; D
+  N --&gt; D
+  C --&gt; D</code></pre>
+<p>The details of how we represent <span class="arithmatex">\(C\)</span> matter: whatever <a href="https://en.wikipedia.org/wiki/Level_of_measurement">scale</a> we use, it contains a baked-in assumption that for any two tasks <span class="arithmatex">\(t_1\)</span> and <span class="arithmatex">\(t_2\)</span> where <span class="arithmatex">\(t_1\not=t_2\)</span>, but <span class="arithmatex">\(C(t_1)=C(t_2)\)</span>, we can treat <span class="arithmatex">\(t_1\equiv t_2\)</span>. This  is a big assumption! What if there are qualitative differences between tasks not captured by the complexity metric that influence <span class="arithmatex">\(D\)</span>? In that case, we may want to use a different variable to capture <span class="arithmatex">\(C\)</span>, perhaps a binary feature vector, or maybe we want to split <span class="arithmatex">\(C\)</span> into a collection of distinct variables. Maybe task complexity isn't objective but subjective, in which case we would want to include in our domain experts plate. Maybe we want to forego <span class="arithmatex">\(C\)</span> altogether and instead treat tasks as a population we need to sample over, e.g.,</p>
+<pre class="mermaid"><code>flowchart LR
+  M("Method ($$M$$)")
+  subgraph ppl [&amp;nbsp;&amp;nbsp;domain experts]
+  subgraph tasks [tasks]
+    direction TB
+    N("Novelty ($$N$$)")
+    D("Precieved Difficulty of Task ($$D$$)")
+  end
+  end
+  M --&gt; D
+  N --&gt; D</code></pre>
+<p>I have plenty more to say and would love to iterate on the design of this hypothetical user study, but I am going to stop here because the above diagram <em>feels</em> like something that should already be established in the literature. Like a lot of folk wisdom, it's suggested, implied, assumed, and (I think!) generally accepted, but so far I have not found any explicit validation of the above schema. That doesn't mean it isn't out there; it means that (a) there isn't a single canonical paper accepted by the community as evidence and (b) where the evidence does exist, it's embedded in work that primarily addresses some other research question.</p>
+<p>So, for now, I am putting together <a href="https://docs.google.com/spreadsheets/d/15m-mItC7kyjtI9u3MhhnFmlKtI51GWuSLPrF5keNITk/edit?usp=sharing">a DSL usability study reading list</a> of works that I think touch on this fundamental problem in meaningful ways. I consider <a href="https://dl.acm.org/doi/pdf/10.1145/3649812">Profiling Programming Language Learning</a> and <a href="https://dl.acm.org/doi/pdf/10.1145/3452379">PLIERS: A Process that Integrates User-Centered Methods into Programming Language Design</a> seed papers and have gotten recommendations from <a href="https://www.mcnutt.in/">Andrew McNutt</a>, <a href="https://cs.brown.edu/~sk/">Shriram Krishnamurthi</a>, and <a href="https://users.soe.ucsc.edu/~lkuper/">Lindsey Kuper</a>. Please feel free to add to this (or use it yourself!). I look forward to writing a follow up post on what I find. :)</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>While the plate notation here looks similar to the output that Helical produces for HyPL code, the specific graphs are more precise than those that Helical can currently produce. For example, only <span class="arithmatex">\(D\)</span> is embedded in the domain experts plate. Helical's current implementation would place both <span class="arithmatex">\(M\)</span> and <span class="arithmatex">\(D\)</span> in this plate.&#160;<a class="footnote-backref" href="2025/09/17/dsl-usability-research.html#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+    
+  </div>
+</article>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+      <nav class="md-post__authors md-typeset">
+        
+          <span class="md-author">
+            <img src="https://openclipart.org/image/800px/303809" alt="Emma Tosch">
+          </span>
+        
+      </nav>
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2025-09-16 00:00:00+00:00">September 16, 2025</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="category/helical.html" class="md-meta__link">Helical</a>, 
+              <a href="category/jupyter.html" class="md-meta__link">Jupyter</a>, 
+              <a href="category/dsls.html" class="md-meta__link">DSLs</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              2 min read
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="jupyter-dsls"><a class="toclink" href="2025/09/16/jupyter-dsls.html">Jupyter DSLs</a></h2>
+<p>One of the broader goals of the <a href="/projects.html#helical">Helical project</a> is to make writing, maintaining, and debugging experiments easier and safer for the end-user through a novel domain-specific language. However, <a href="2025/09/17/dsl-usability-research.html">learning a new formal language can itself contribute to the difficulty of encoding an experiment</a>. Therefore, we are intersted in mitigating the effects of language learning/novelty. To this end, a Northeastern coop student (<a href="https://www.linkedin.com/in/kyang004">Kevin G. Yang</a>) investigated the suitability of using Jupyter notebooks as an execution environment for experiments last year.</p>
+<!--more-->
+
+<p>Jupyter notebooks are commonly used by empiricists. If we want empiricists to use Helical, then it would make sense to integrate it into empiricists' computational workflow. Kevin began investigating the feasibility of adding such support for features such as syntax highlighting and code completion to Jupyter. This actually turned out to be a surprisingly difficult task!</p>
+<p>Kevin ended up doing a deep dive into the Jupyter code base and issue database, resulting in an <a href="https://kilthub.cmu.edu/articles/conference_contribution/Exploring_Support_for_Lightweight_DSLs_in_Jupyter_Notebooks/29087102">experience report</a> and <a href="https://kyang04.github.io/">tutorial</a> that he presented internally at the <a href="https://prl.khoury.northeastern.edu/people.html">Northeastern Programming Research Lab's seminar series</a> and externally at <a href="https://2025.plateau-workshop.org/program">PLATEAU 2025</a>. While his coop focused on a specific implementation task, the work led us to ask new research questions. For example, we were somewhat surprised by the breadth of tooling empirical scientists were using and that there was demand for custom syntax highlight organically in the Jupyter user base &mdash; conventional wisdom in the PL community is that DSLs are a bit niche! Thus, rather than focusing on Helical specifically, we broadened the task to DSL support in Jupyter more generally. </p>
+<p>At the start of his coop, I had envisioned Kevin integrating Helical into Jupyter and then pivoting to a reproduction study. However, as he was working on the project, he became increasingly interested in visualization and usability. We were hoping to perform a user study in Summer 2025 to further investigate some of the research questions that arose and perhaps send a conference paper submission out to CHI or UIST; that <a href="https://www.insidehighered.com/news/students/academics/2025/03/11/trumps-cuts-threaten-key-nsf-undergrad-research-program">thread was put on hold</a> as Kevin continues <a href="https://www.linkedin.com/in/kyang004">his career exploration journey</a>. </p>
+    
+  </div>
+</article>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+      <nav class="md-post__authors md-typeset">
+        
+          <span class="md-author">
+            <img src="https://openclipart.org/image/800px/246278" alt="Zixuan Jason Yu">
           </span>
         
       </nav>

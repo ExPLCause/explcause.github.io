@@ -1,0 +1,24 @@
+---
+date: 2025-09-16
+categories:
+    - Helical
+    - Jupyter
+authors:
+    - etosch
+---
+
+# Jupyter, DSLs, and Separating Causes that have Different Effects
+
+One of the broader goals of the [Helical project](/projects.html#helical) is to make writing, maintaining, and debugging experiments easier and safer for the end-user. However, learning a new programming language can itself be a barrier. To address this concern, last year a Northeastern coop student ([Kevin G. Yang]()) investigated the suitability of using Jupyter notebooks as an execution environment for experiments. 
+
+<!--more-->
+
+Jupyter notebooks are commonly used by empiricists. I hypothesized that providing IDE-like support in Jupyter notebooks would reduce the effects of language learning/the novelty of Helical on end-users' ability to write experiments.
+
+```mermaid
+flowchart TD
+    LN(Language Novelty) --> EE(Ease of Expression)
+    EC(Experiment Complexity) --> EE
+```
+
+ One factor that impacted the usability of the experimentation DSL was the lack of common IDE support for it, such as syntax highlighting and code completion. Yang began investigating the feasibility of adding 

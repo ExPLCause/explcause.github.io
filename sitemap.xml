@@ -2,42 +2,58 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://explcause.github.io/index.html</loc>
-         <lastmod>2025-09-11</lastmod>
+         <lastmod>2025-09-17</lastmod>
     </url>
     <url>
          <loc>https://explcause.github.io/about.html</loc>
-         <lastmod>2025-09-11</lastmod>
+         <lastmod>2025-09-17</lastmod>
     </url>
     <url>
          <loc>https://explcause.github.io/get_involved.html</loc>
-         <lastmod>2025-09-11</lastmod>
+         <lastmod>2025-09-17</lastmod>
     </url>
     <url>
          <loc>https://explcause.github.io/projects.html</loc>
-         <lastmod>2025-09-11</lastmod>
+         <lastmod>2025-09-17</lastmod>
     </url>
     <url>
          <loc>https://explcause.github.io/2025/08/18/welcome.html</loc>
-         <lastmod>2025-09-11</lastmod>
+         <lastmod>2025-09-17</lastmod>
     </url>
     <url>
          <loc>https://explcause.github.io/2025/08/20/new-student-new-project.html</loc>
-         <lastmod>2025-09-11</lastmod>
+         <lastmod>2025-09-17</lastmod>
     </url>
     <url>
          <loc>https://explcause.github.io/2025/08/21/ysocial-and-digital-twins.html</loc>
-         <lastmod>2025-09-11</lastmod>
+         <lastmod>2025-09-17</lastmod>
+    </url>
+    <url>
+         <loc>https://explcause.github.io/2025/09/16/jupyter-dsls.html</loc>
+         <lastmod>2025-09-17</lastmod>
+    </url>
+    <url>
+         <loc>https://explcause.github.io/2025/09/17/dsl-usability-research.html</loc>
+         <lastmod>2025-09-17</lastmod>
     </url>
     <url>
          <loc>https://explcause.github.io/archive/2025.html</loc>
-         <lastmod>2025-09-11</lastmod>
+         <lastmod>2025-09-17</lastmod>
+    </url>
+    <url>
+         <loc>https://explcause.github.io/category/dsls.html</loc>
+         <lastmod>2025-09-17</lastmod>
     </url>
     <url>
          <loc>https://explcause.github.io/category/helical.html</loc>
-         <lastmod>2025-09-11</lastmod>
+         <lastmod>2025-09-17</lastmod>
+    </url>
+    <url>
+         <loc>https://explcause.github.io/category/jupyter.html</loc>
+         <lastmod>2025-09-17</lastmod>
     </url>
     <url>
          <loc>https://explcause.github.io/category/admin.html</loc>
-         <lastmod>2025-09-11</lastmod>
+         <lastmod>2025-09-17</lastmod>
     </url>
 </urlset>
