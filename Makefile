@@ -35,4 +35,5 @@ clean:
 		rm *.xml; \
 		rm -rf blog; \
 		rm sitemap.xml.gz; \
+		rm src/posts/*~; \
 	)

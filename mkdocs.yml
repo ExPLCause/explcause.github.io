@@ -1,6 +1,6 @@
-site_name: "Helical Blog and Project Navigation"
+site_name: "Cool stuff happens here"
 site_author: "Emma Tosch (e.tosch@northeastern.edu)"
-site_description: "Project navigation and blog for work in experimentation, PL, and causality."
+site_description: "Project navigation and blog for work on games, PL, logic, experimentation, multi-agent reasoning, causality, and related topics that we in the POEM Lab are passionate about!"
 docs_dir: "src"
 use_directory_urls: false
 site_url: "https://explcause.github.io"
@@ -39,7 +39,6 @@ plugins:
       comments_path: "$__comments"
   - blog:
       blog_dir: .
-      authors_profiles: true
   - diagrams
   - search 
   - tags
