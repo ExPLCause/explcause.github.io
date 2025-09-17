@@ -56,7 +56,7 @@ flowchart LR
   subgraph ppl [&nbsp;&nbsp;domain experts]
     direction TB
     N("Novelty ($$N$$)")
-    D("Precieved Difficulty of Task ($$D$$)")
+    D("Percieved Difficulty of Task ($$D$$)")
   end
   M --> D
   N --> D
