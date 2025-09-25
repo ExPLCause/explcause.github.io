@@ -37,3 +37,6 @@ clean:
 		rm sitemap.xml.gz; \
 		rm src/posts/*~; \
 	)
+
+post:
+	source venv/bin/activate && python scripts/make_post.py
