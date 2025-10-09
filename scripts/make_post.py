@@ -17,15 +17,22 @@ def make_post_path(fname):
         'posts',
         fname])
 
-post = make_post_path(year+month+day+'.md')
+print(f'Short title (this will be appended to the date as the file name):')
+shorttitle = input()
+
+post = make_post_path(f'{year}{month}{day}{"_" + shorttitle if shorttitle else ""}.md')
 
 while os.path.exists(post):
     print(f'Post {post} already exists. Please provide differentiating suffix:')
-    suffix = input()
-    post = make_post_path(f'{year}{month}{day}_{suffix}.md')
+    shorttitle = input()
+    post = make_post_path(f'{year}{month}{day}_{shorttitle}.md')
+
+print(f'Full title:')
+title = input()
 
 content = f"""---
 date: {year}-{month}-{day}
+title: {title}
 categories:
 tags:
 authors:

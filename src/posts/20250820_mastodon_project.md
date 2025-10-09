@@ -14,9 +14,6 @@ authors:
 
 I want to extend a belated welcome to [Zixuan (Jason) Yu](http://www.linkedin.com/in/zixuanyu-jason), a Northeastern University undergraduate student who is working with me on a research coop through December 2025. Jason's project focuses on identifying elements of the Mastodon code base where we might either want to intervene (in order to answer a research question) or where there might be associated privacy considerations.
 
-
-<!--more-->
-
 Jason's project combines goals from the [Privacy Narratives](./projects.html#privacy-narratives) project and the [Helical](./projects.html#helical) project. He will be posting here regularly, but before then, let's dicuss the connection between privacy and experimentation.
 
 As Donald Campbell wrote in [Methods for the Experimenting Society](https://www.sfu.ca/~palys/Campbell-1991-MethodsForTheExperimentingSociety.pdf),
