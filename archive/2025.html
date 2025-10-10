@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://explcause.github.io/archive/2025.html">
       
       
-        <link rel="prev" href="../category/jupyter.html">
+        <link rel="prev" href="../category/statistics.html">
       
       
       
@@ -532,6 +532,31 @@
 
               
             
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="../category/statistics.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Statistics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -571,6 +596,114 @@
       <header class="md-typeset">
         <h1 id="2025">2025</h1>
       </header>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+      <nav class="md-post__authors md-typeset">
+        
+          <span class="md-author">
+            <img src="https://openclipart.org/image/800px/303809" alt="Emma Tosch">
+          </span>
+        
+      </nav>
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2025-10-02 00:00:00+00:00">October 2, 2025</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="../category/statistics.html" class="md-meta__link">Statistics</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              8 min read
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="what-even-is-a-parameter"><a class="toclink" href="../2025/10/02/what-even-is-a-parameter.html">What even is a "parameter"?</a></h2>
+<p>"Parameter" is one of those commonly used words in mathematics and computing and in my experience is rarely explicitly defined. While most uses have similar meanings, there can be small differences in their interpretation. Parameters and other statistical entities are important to the semantics and correctness of the Helical system, so it's worth considering what we mean by these terms.</p>
+<h3 id="oed-definitions"><a class="toclink" href="../2025/10/02/what-even-is-a-parameter.html#oed-definitions">OED Definitions</a></h3>
+<p>Let's start by taking a look at how the Oxford English Dictionary defines "parameter". </p>
+<h4 id="regular-old-mathematics"><a class="toclink" href="../2025/10/02/what-even-is-a-parameter.html#regular-old-mathematics">Regular old mathematics</a></h4>
+<p>Under the entry for mathematics we have two definitions:</p>
+<blockquote>
+<p>A quantity which is fixed (as distinct from the ordinary variables) in a particular case considered, but which may vary in different cases; esp. a constant occurring in the equation of a curve or surface, by the variation of which the equation is made to represent a family of such curves or surfaces (cf. quot. 1816 at sense I.1). Also (Computing): a quantity whose value is specified when a routine is to be performed. (1833-)</p>
+</blockquote>
+<p></p>
+<blockquote>
+<p>An independent variable in terms of which each coordinate of a point of a curve, surface, etc., is expressed, independently of the other coordinates. (1855–)</p>
+</blockquote>
+<p>These two definitions track with what I'd guess is most people's first exposure to parameters, in physics. For example, let's consider Hook's law: <span class="arithmatex">\(F = kx\)</span>. Here <span class="arithmatex">\(F\)</span> represents force, <span class="arithmatex">\(k\)</span> is a spring constant, and <span class="arithmatex">\(x\)</span> is distance. The parameter is "fixed...in a particular case considered": i.e., there is only one value of <span class="arithmatex">\(k\)</span> for each spring. To make this relationship very clear, we might instead express Hook's law using the notation: <span class="arithmatex">\(F_s = k_s x\)</span> to indicate that <em>this</em> <span class="arithmatex">\(k\)</span> is the spring constant for <em>this</em> spring (called <span class="arithmatex">\(s\)</span>) and that <span class="arithmatex">\(F_s\)</span> is the force required to stretch <span class="arithmatex">\(s\)</span> <span class="arithmatex">\(x\)</span> units of distance. </p>
+<p>If we wanted to make it clear that the parameter <span class="arithmatex">\(k\)</span> can be thought of as a special kind of input, we might alternatively write Hook's law as <span class="arithmatex">\(F(x; k) = k x\)</span>. Here we are using the semicolon (rather than comma) to indicate that there is a qualitative and semantic distinction between these two inputs. </p>
+<p>We can also think about Hook's law as a higher-order function <span class="arithmatex">\(F : S \rightarrow \mathcal{R} \rightarrow \mathcal{R}\)</span> where <span class="arithmatex">\(S\)</span> is the domain of springs or the domain of numeric spring identifiers, or something similar. We would apply <span class="arithmatex">\(F\)</span> to our spring of interest and get a unary function that has instantiated and fixed the spring constant. Note that in this context, <span class="arithmatex">\(k_s\)</span> is the parameter, not <span class="arithmatex">\(s\)</span>. </p>
+<p>Parameters specialize functions in some way; we often say that a parameter "indexes into" a "family" of functions.<sup id="fnref2:1"><a class="footnote-ref" href="../2025/10/02/what-even-is-a-parameter.html#fn:1">1</a></sup> What this example also illustrates is that the need to refer to a term in an equation as a "parameter" in many situations is a proxy for scope (especially in contexts where we don't 
+really have a notion of scope). We expressed scope above using a higher order function, but we could just as well have used a let binding, arguments to a command line program, or another mechanism for specializing computation. </p>
+<h4 id="statistics"><a class="toclink" href="../2025/10/02/what-even-is-a-parameter.html#statistics">Statistics</a></h4>
+<p>Under the entry for statistics we have:</p>
+<blockquote>
+<p>A numerical characteristic of a population, as distinguished from a statistic obtained by sampling. (1920-)</p>
+</blockquote>
+<p>The first set of definitions make no mention of the domain, nor the semantics of the parameter. Statistics narrows the scope considerably. </p>
+<h3 id="parameters-in-statistics-vs-probability"><a class="toclink" href="../2025/10/02/what-even-is-a-parameter.html#parameters-in-statistics-vs-probability">Parameters in Statistics vs. Probability</a></h3>
+<p>First a refresher on how statistics differs from probability theory: a <em>statistic</em> is any function of data<sup id="fnref2:2"><a class="footnote-ref" href="../2025/10/02/what-even-is-a-parameter.html#fn:2">2</a></sup> and so the study of statistics is the study of functions of data. Probability theory is the formal study of the properties of stochastic phenomena. One way to think about their relationship to each other is that probability theory provides a language for describing the ground truth of stochastic phenomena, while statistics provides a language of relations over data. </p>
+<p>It is important to distinguish between <em>parametric distributions</em> and <em>parameterized models</em> or <em>parametric statistics</em>.</p>
+<h4 id="parameters-in-probability-theory"><a class="toclink" href="../2025/10/02/what-even-is-a-parameter.html#parameters-in-probability-theory">Parameters in Probability Theory</a></h4>
+<p>In probability theory, a distribution may be parametric or non-parametric. It can be easier to define a non-parametric distribution first, but to do so, we need to recall some basic defintions.</p>
+<h5 id="non-parametric-distributions"><a class="toclink" href="../2025/10/02/what-even-is-a-parameter.html#non-parametric-distributions">Non-Parametric Distributions</a></h5>
+<p>Most introductions to probability theory I've seen begin with a set-theoretic treatment of the <em>sample space</em> where we assign <em>probabilities</em> to <em>events</em> (i.e., subsets of the sample space). The function that assigns these probabilities must obey certain axioms for its to be a well-formed probability function. When events can be meaningfully assigned numeric values, we say that the map from events to numbers is a <em>random variable</em> and that the mapping from those numbers to probabilites is its distribution (i.e., a probability function for random variables).  We typically denote a random variable with a capital Roman letter.</p>
+<p>We typically choose to use random variables instead of events when the <em>probabilistic queries</em> we want to ask are with respect to the random variable's codomain. That is, when we write <span class="arithmatex">\(P(X = n)\)</span> (what is the probability that <span class="arithmatex">\(X\)</span> is <span class="arithmatex">\(n\)</span>?), this statement should be understood to mean <span class="arithmatex">\(\sum_{\lbrace e \mid e \subseteq \Omega \wedge X(e) = n \rbrace}f_\Omega(e)\)</span>, where <span class="arithmatex">\(f\)</span> is the mass or density function associated with the underlying sample space. </p>
+<!-- and ask _probability queries_ with respect to its codomain using the notation $P(X(e) = n)$ to mean "what is the probability that event $e$ has value $n$?  Unless it is contextually important, we generally omit the event and simply write $P(X = n)$ ("what is the probability ) -->
+
+<p>When the number of the coefficients of the terms of the functional form of <span class="arithmatex">\(f\)</span> is <em>not</em> strictly less than the size of the sample space<sup id="fnref2:3"><a class="footnote-ref" href="../2025/10/02/what-even-is-a-parameter.html#fn:3">3</a></sup> minus one, then we say the distribution is non-parametric.<sup id="fnref2:4"><a class="footnote-ref" href="../2025/10/02/what-even-is-a-parameter.html#fn:4">4</a></sup> Symbolically, if we let <span class="arithmatex">\(\Theta\)</span> represent the parameters, then when <span class="arithmatex">\(\Theta &lt; \Omega - 1\)</span>, the distribution is parametric. One consequence of this definition is that any finite sample space can be represented by a parametric distribution because in the worst-case scenario, we need <span class="arithmatex">\(|\Omega| - 1\)</span> parameters for the first <span class="arithmatex">\(|\Omega| - 1\)</span> elements of the sample space; the mass associated with the last element must be one minus the sum of the parameters (i.e., it is no longer free to vary). </p>
+<p>Because <span class="arithmatex">\(\infty - 1 \equiv \infty\)</span>, discrete sample spaces of infinite size are non-parametric. We would need to look to more sophsticated probabilistic process models in order to 
+encounter such a distribution; they are out of scope for this already-too-long post, but for interested readers, one such example is the <a href="https://en.wikipedia.org/wiki/Chinese_restaurant_process">Chinese Restaurant Process</a>. Critically, such distributions may have terms we refer to as "parameters" but they are <em>non-parametric</em> distributions; the "parameters" of these mathematical objects are parameters in the traditional mathematical sense, not in the probability-specific sense.</p>
+<h5 id="parametric-distributions"><a class="toclink" href="../2025/10/02/what-even-is-a-parameter.html#parametric-distributions">Parametric Distributions</a></h5>
+<p>Parametric distributions are what you typically learn in an introduction to probability theory: e.g., Categorial, Binomial, and Normal distributions. One particularly useful aspect of parametric distributions is that you can compute the probability of any event knowing only the parameters. </p>
+<p>The parameters of parametric distributions typically have meaningful "real-world" interpretations. This is where they connect to statistics. </p>
+<h4 id="parameters-in-statistics"><a class="toclink" href="../2025/10/02/what-even-is-a-parameter.html#parameters-in-statistics">Parameters in Statistics</a></h4>
+<p>We can use statistics to answer questions about a single variable (<em>univariate</em> models) and to answer questions about multiple variables (<em>multivariate</em> or <em>associational</em> models). One of the primary goals of statistics is to use the data we have now, that we have actually collected and observed in the world, to make <em>inferences</em> about the general space of data in our domain of interest. </p>
+<h5 id="non-parametric-statistics"><a class="toclink" href="../2025/10/02/what-even-is-a-parameter.html#non-parametric-statistics">Non-Parametric Statistics</a></h5>
+<p>Just like in non-parametric probability distributions, we could make the argument that there are parameters in the mathematical sense (e.g., coefficiences of a fitted curve), but the number needed to describe mass or density on a sample space may grow with the data. We may use non-parametric statistics to estimate data drawn from <em>either</em> parametric or non-parametric distributions; there are valid reasons to pick one or another, but fundamentally parametricity of the underlying distribution of the dat does not <em>determine</em> the statistical methods we use.</p>
+<h5 id="parametric-statistics"><a class="toclink" href="../2025/10/02/what-even-is-a-parameter.html#parametric-statistics">Parametric Statistics</a></h5>
+<p>In parametric statistics, we start with an assumed model family and data. </p>
+<p>When our model is univariate, the model corresponds to a probability distribution and the task is to estimate its parameters from data. For example, we might model the length of a six week old Beagle puppy as a Normal (<span class="arithmatex">\(X\sim\mathcal{N}(\mu, \sigma^2)\)</span>) distribution. Given a large enough random sample of Beagle pupples, we can compute the sample average length; sample average is what's known as an <em>unbiased estimator</em> for the parameter <span class="arithmatex">\(\mu\)</span> of a Normal distribution. </p>
+<p>You might infer inductively from the above paragraph that when our model is multivariate, we are seeking to model a joint probability distribution. However, that's typically not the case! Instead, the most commonly used multivariate model is <em>linear regression</em>, which has the form <span class="arithmatex">\(Y = \beta_0 + \beta_1 X_1 + \cdots + \beta_n X_n\)</span>. In order to make estimation tractable, most models assume a functional form for each <span class="arithmatex">\(X_i\)</span> such that all <span class="arithmatex">\(X_i\)</span> have equal variance to each other, e.g., <span class="arithmatex">\(X_i \sim \mathcal{N}(\mu_i, \sigma^2)\)</span>. </p>
+<p>Critically, the "parameters" of this model are the coefficients <span class="arithmatex">\(\beta_i\)</span>, <em>not</em> <span class="arithmatex">\(\mu_i\)</span>. While the <span class="arithmatex">\(\mu_i\)</span> are related to the coefficients we seek to estimate, they are <em>not</em> the parameters that definie this parametric distribution. They are however weights that may be assigned sime kind of semantics related to summary information about the data.</p>
+<h3 id="final-notes"><a class="toclink" href="../2025/10/02/what-even-is-a-parameter.html#final-notes">Final Notes</a></h3>
+<p>Because statistics as a field is definitionally about data, it is fundamentally empirical and thus based on observation of phenemena in the real world. These data are drawn from a population, hence the appearance of "population" in the OED's definition. We won't get deep in the weeds on what a "population" really is (that's for another blog post!); instead it's important to think about a "population" mapping abstractly to a space of data points and the parameter being a fundamentally unobserved mathematical object that defines that space. </p>
+<!-- Now, this stataement mmay seem to evoke the so-called Bayesian vs. frequentist argument; for the uninitiated, this is a debate in the statistics community about when and how a statistical object can be treated as a random variable or random process. There are many interesting philosophical ramifications of this debate: for example, is uncertainty epistemic or aleatory and does that matter? The examples we care about in the Helical project are grounded in stochastic behavior and the unmodeled variability of a population; that is, the circumstances that led a Bayesian interpretation of probability do not apply here. I note the existence of the Bayesian perspective only to point out that Bayesian statistics also employs parameters, but their interpretation may differ. -->
+
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>Without getting too ahead of myself, I'd argue that the language of "indexing into" a family of functions implies that after specialization, the resulting relation is a function, which is not necessarily true without additional assumptions and kind of the whole point of this and forthcoming blog posts. :)&#160;<a class="footnote-backref" href="../2025/10/02/what-even-is-a-parameter.html#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="../2025/10/02/what-even-is-a-parameter.html#fnref2:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>Unless otherwise noted, all defintions are from the textbook I used in my graduate course in fundamental statistics: <em>Statistical Inference</em>, 2nd edition, by Casella and Berger.&#160;<a class="footnote-backref" href="../2025/10/02/what-even-is-a-parameter.html#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="../2025/10/02/what-even-is-a-parameter.html#fnref2:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p>I haven't actually seen or found any satisifying definitions of parametric vs. non-parametric distributions in a strict probability theory context in any of the reputable textbooks I've used; this seems to be one of those things that authors assume everyone understands. Therefore, what I'm presenting is my own understanding of the terminology from having taught this material several times. Please do drop me a line if my definition is either incorrect or if you are aware of an appropriate citation!&#160;<a class="footnote-backref" href="../2025/10/02/what-even-is-a-parameter.html#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a><a class="footnote-backref" href="../2025/10/02/what-even-is-a-parameter.html#fnref2:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:4">
+<p>We are defining parametricity in terms of a mass or density function <span class="arithmatex">\(f\)</span> on a sample space <span class="arithmatex">\(\Omega\)</span>, but all of these arguments also apply in the case of a random variable <span class="arithmatex">\(X\)</span> and its <em>support</em> <span class="arithmatex">\(\mathcal{X}\)</span>. We do not get into the definition of a support here both because it is not especially relevant and because a proper definition for the continuous case requires a discusion of Borel spaces, which is getting quite far afield from what I wanted to focus on in this post!&#160;<a class="footnote-backref" href="../2025/10/02/what-even-is-a-parameter.html#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a><a class="footnote-backref" href="../2025/10/02/what-even-is-a-parameter.html#fnref2:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+    
+  </div>
+</article>
       
         <article class="md-post md-post--excerpt">
   <header class="md-post__header">
@@ -642,7 +775,7 @@ Conducting a na&iuml;ve study results in <span class="arithmatex">\((D \vert M=\
   subgraph ppl [&amp;nbsp;&amp;nbsp;domain experts]
     direction TB
     N("Novelty ($$N$$)")
-    D("Precieved Difficulty of Task ($$D$$)")
+    D("Percieved Difficulty of Task ($$D$$)")
   end
   M --&gt; D
   N --&gt; D
@@ -756,8 +889,6 @@ Conducting a na&iuml;ve study results in <span class="arithmatex">\((D \vert M=\
   <div class="md-post__content md-typeset">
     <h2 id="introduction-to-digital-twins"><a class="toclink" href="../2025/08/21/ysocial-and-digital-twins.html">Introduction to Digital Twins</a></h2>
 <p>Recently, I've been reading about this new technology called digital twins. I started with <a href="https://www.nature.com/articles/s43588-024-00603-w.pdf">this paper</a>. I think it's a great introduction, and it's also the one that my research supervisor has recommended to me.</p>
-<!--more-->
-
 <p>I had no idea what a digital twin is. I have not heard of this phrase at all, and the first impression of it was that it felt similar to what NFTs are. It's also a digital representation of a real-world physical object, and that was my first impression of what a digital twin could be.</p>
 <p>As I continued reading the paper, I found out that no, it's not like that. Digital twins are online objects or online clones of something in the physical world, but there are huge differences. The digital twins are alive, where they gather real-time data from the object or system that it is representing in the real world, so it keeps updating itself. An NFT is an online object, it's something that does not change, and that is one of the key properties of NFTs.</p>
 <p>Something that is quite talked about on the internet is how digital twins have a use over regular simulations, which is being heavily used in different areas of the world. They have similar features; they both gather data and they both try to simulate what something in the real world or even in the digital world might do. They try to predict the future. Now they are more similar, I think. They have a similar "go down inside" --- the real difference here is: simulation is where you feed it the data before it starts and try to predict everything afterwards based on the data you feed it, whereas the digital twin is more of a progression. The digital twin will evolve as the physical twin progresses in the real world, like a twin where they grow, they evolve, they do everything basically simultaneously. And that's the thing with the Digital Twin, you basically get a realtime, digital clone of something in the real world, whether that is an object, whether that is a system, whether it is anything that has sorts of data that you could replicate in the real world. And basically, that is the real goal of what digital twins are.</p>
@@ -814,8 +945,6 @@ Conducting a na&iuml;ve study results in <span class="arithmatex">\((D \vert M=\
   <div class="md-post__content md-typeset">
     <h2 id="new-student-new-project"><a class="toclink" href="../2025/08/20/new-student-new-project.html">New student, new project!</a></h2>
 <p>I want to extend a belated welcome to <a href="http://www.linkedin.com/in/zixuanyu-jason">Zixuan (Jason) Yu</a>, a Northeastern University undergraduate student who is working with me on a research coop through December 2025. Jason's project focuses on identifying elements of the Mastodon code base where we might either want to intervene (in order to answer a research question) or where there might be associated privacy considerations.</p>
-<!--more-->
-
 <p>Jason's project combines goals from the <a href="./projects.html#privacy-narratives">Privacy Narratives</a> project and the <a href="./projects.html#helical">Helical</a> project. He will be posting here regularly, but before then, let's dicuss the connection between privacy and experimentation.</p>
 <p>As Donald Campbell wrote in <a href="https://www.sfu.ca/~palys/Campbell-1991-MethodsForTheExperimentingSociety.pdf">Methods for the Experimenting Society</a>,</p>
 <blockquote>
@@ -864,8 +993,6 @@ Conducting a na&iuml;ve study results in <span class="arithmatex">\((D \vert M=\
   <div class="md-post__content md-typeset">
     <h2 id="welcome"><a class="toclink" href="../2025/08/18/welcome.html">Welcome!</a></h2>
 <p>This is the first in what I hope will be many blog posts on the relationship between experimentation and programming languages. </p>
-<!--more-->
-
 <p>First, the meta: there are two ways to categorize the work that this blog will cover. One is by the methods used: this work exists at the intersection of formal and empirical research methods and so some posts will be quite technical, focusing on formal language design, logic, causal inference, and general "mathiness." In a lot of ways, this isn't particularly useful information: we might as well say we are "doing science," since empirical and formal methods describe <em>a lot</em> of the tools we use to generate scientific knowledge. On the other hand, that framing distinguishes the goals of this work from ordinary academic scientific activity, where we typically use a small set of methods for a specialized set of domains, which leads us to the observation that...</p>
 <p>The other way to categorize this work is by application area. We are broadly interested in "systems," which is a general word to describe objects in the world that interact with each other. We are specifically interested in computer-mediated systems, which range from sociotechnical systems like Mastodon and social games, to typical computer systems like databases, operating systems, or programming frameworks. These application areas provide contexts in which we can evaluate the methods we study, while also providing inspiration for the methodological problems we address. </p>
     
